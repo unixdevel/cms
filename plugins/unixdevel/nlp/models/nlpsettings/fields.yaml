@@ -1,0 +1,9 @@
+tabs:
+    fields:
+        api_url:
+            span: left
+            label: NLP API URL
+            comment: This is the api url to be used for processing the content
+            type: text
+            default: http://localhost:9000
+            tab: NLP API URL

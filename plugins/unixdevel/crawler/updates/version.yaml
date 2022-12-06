@@ -1,0 +1,10 @@
+"1.0.0":
+    - Create crawler table.
+    - v1.0.0/CreateCrawlersTable.php
+    - v1.0.0/CreateFeedsTable.php
+    - v1.0.0/CreateCrawlersFeedsTable.php
+    - v1.0.0/CreateFeedsCategoriesTable.php
+    - v1.0.0/CreateFeedsLinksTable.php
+"1.0.1":
+    - Seed crawler tables.
+    - v1.0.1/SeedCrawlerPlugin.php

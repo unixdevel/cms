@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'unixdevel.feeds::lang.models.website.label'
+
+# Model Form Field configuration
+form: $/unixdevel/feeds/models/website/fields.yaml
+
+# Model Class name
+modelClass: UnixDevel\Feeds\Models\Website
+
+# Default redirect location
+defaultRedirect: unixdevel/feeds/websites
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: unixdevel/feeds/websites/update/:id
+    redirectClose: unixdevel/feeds/websites
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: unixdevel/feeds/websites
+    redirectClose: unixdevel/feeds/websites
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

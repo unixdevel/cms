@@ -1,0 +1,10 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+# Model List Column configuration
+list: $/unixdevel/crawler/models/feed/columns.yaml
+
+# Model Class name
+modelClass: UnixDevel\Crawler\Models\Feed
+

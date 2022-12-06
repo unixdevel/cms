@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'unixdevel.crawler::lang.models.feed.label'
+
+# Model Form Field configuration
+form: $/unixdevel/crawler/models/feed/fields.yaml
+
+# Model Class name
+modelClass: UnixDevel\Crawler\Models\Feed
+
+# Default redirect location
+defaultRedirect: unixdevel/crawler/feed
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: unixdevel/crawler/feed/update/:id
+    redirectClose: unixdevel/crawler/feed
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: unixdevel/crawler/feed
+    redirectClose: unixdevel/crawler/feed
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title
