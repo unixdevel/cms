@@ -27,6 +27,11 @@ class CreateRemotePost implements ShouldQueue
      */
     public function handle(): void
     {
-        //
+        //todo check if category exists
+        //todo create category
+        //todo check if tags exists
+        //todo create tags
+        //todo check if post exists
+        //todo create post
     }
 }

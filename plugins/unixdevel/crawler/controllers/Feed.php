@@ -1,6 +1,7 @@
 <?php namespace UnixDevel\Crawler\Controllers;
 
-use BackendMenu;
+use Backend\Facades\BackendMenu;
+
 use Backend\Classes\Controller;
 
 /**

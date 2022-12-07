@@ -9,7 +9,7 @@ use UnixDevel\Crawler\Models\Feed;
 use Winter\Blog\Models\Category;
 
 /**
- * @package
+ * @package FeedRepository
  */
 class FeedRepository implements FeedContract
 {

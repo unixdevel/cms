@@ -2,6 +2,7 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Bus\Batchable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -12,12 +13,13 @@ use Winter\Storm\Network\Http;
 
 class NLPProcessor implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Batchable, Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private string $url;
 
     public function __construct(string $url)
     {
+        info("Dispatching job for {$url} ");
         $this->url = $url;
     }
 
@@ -28,20 +30,30 @@ class NLPProcessor implements ShouldQueue
      */
     public function handle(): void
     {
-        $client = new Client([
-            'headers' => [ 'Content-Type' => 'application/json' ]
-        ]);
+        info("I get touched from the job");
 
-        $config = collect(
-            Config::get('nlp.endpoint')
-        );
+        try{
+            $client = new Client([
+                'headers' => [ 'Content-Type' => 'application/json' ]
+            ]);
 
-        $response = $client->post($config->random(), ['json' => [
-            'query' => $this->url
-        ]]);
+            $config = collect(
+                Config::get('nlp.endpoint')
+            );
 
-        $collection = collect(json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR));
+            $response = $client->post($config->random(), ['json' => [
+                'query' => $this->url
+            ]]);
 
-        info(json_encode($collection, JSON_THROW_ON_ERROR));
+            $collection = collect(json_decode($response->getBody()->getContents(), false, 512, JSON_THROW_ON_ERROR));
+            //todo dispatch here a new job or used this to store in blog
+            info(($collection->toJson()));
+
+        }catch (\HttpException $exception){
+
+            error_log($exception->getMessage());
+        }
+
+
     }
 }
